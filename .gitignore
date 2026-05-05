@@ -1,0 +1,32 @@
+# 환경 설정 (API 키 포함 — 절대 커밋 금지)
+.env
+settings.json
+
+# 텔레그램 세션 (계정 인증 정보 — 절대 커밋 금지)
+*.session
+*.session-journal
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# PyInstaller 빌드 산출물
+build/
+dist/
+*.spec
+
+# 수집 데이터 및 상태 (로컬 전용)
+data/
+state/
+
+# 로그
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
