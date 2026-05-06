@@ -76,6 +76,7 @@ def build_gui(target: dict) -> bool:
         *_COMMON_FLAGS,
         f"--name={name}",
         *([] if console else ["--noconsole"]),
+        "--collect-all", "customtkinter",   # CTk 테마/이미지 리소스 포함
         script,
     ]
     print(f"\n  빌드 중: {name}.exe  ({'콘솔' if console else 'GUI'})")

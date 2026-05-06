@@ -26,6 +26,7 @@ _DEFAULTS: dict = {
     "max_file_size_mb":        0,
     "keep_original_file_days": 30,
     "download_file_types":     "all",
+    "save_path":               "",
 }
 
 
@@ -201,6 +202,9 @@ def gui_settings_to_collect_settings(
         except (TypeError, ValueError):
             return default
 
+    save_path_str = gui_settings.get("save_path", "").strip()
+    data_dir = Path(save_path_str) if save_path_str else base_dir / "data"
+
     return {
         "api_id":              str(gui_settings.get("api_id",   "")).strip(),
         "api_hash":            str(gui_settings.get("api_hash", "")).strip(),
@@ -213,7 +217,7 @@ def gui_settings_to_collect_settings(
         "exclude_file_exts":   set(),
         "keep_console_open":   False,
         "base_dir":            base_dir,
-        "data_dir":            base_dir / "data",
+        "data_dir":            data_dir,
         "state_dir":           base_dir / "state",
         "config_dir":          base_dir / "config",
         "session_path":        str(base_dir / "telegram_session"),
